@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sdf version="1.5">
+  <model name="Demo Robot">
+    <pose>0 0 -0.0381 0 0 0</pose>
+    <plugin name="clock" filename="libclock.so">
+      <topic>/gazebo/frc/time</topic>
+    </plugin>
+    <link name="Chassis">
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <pose>0.000996109222775244 -5.81283919974791E-20 0.0259777023717224 1.5707963267949 0 1.5707963267949</pose>
+      <must_be_base_link>1</must_be_base_link>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <inertial>
+        <mass>0.534070543471594</mass>
+        <pose>0 0 0 0 0 0</pose>
+        <inertia>
+          <ixx>0.00297654416727114</ixx>
+          <ixy>6.16786197506977E-20</ixy>
+          <ixz>5.90998711658102E-19</ixz>
+          <iyy>0.00567628188721083</iyy>
+          <iyz>1.65834314751053E-05</iyz>
+          <izz>0.00294476205775563</izz>
+        </inertia>
+      </inertial>
+      <collision name="Chassis_collision">
+        <pose>3.88659493826476E-17 -0.0259777023717224 -0.000996109222775252 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Demo_Robot/meshes/Chassis.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode />
+          </contact>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Chassis_visual">
+        <pose>3.88659493826476E-17 -0.0259777023717224 -0.000996109222775252 0 0 0</pose>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+        </material>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Demo_Robot/meshes/Chassis.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="FL_Wheel">
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <pose>0.127 0.13335 2.8199664825479E-17 1.5707963267949 0 1.5707963267949</pose>
+      <must_be_base_link>0</must_be_base_link>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <inertial>
+        <mass>0.161008328313146</mass>
+        <pose>0 0 0 0 0 0</pose>
+        <inertia>
+          <ixx>0.000116860649731323</ixx>
+          <ixy>7.52764927567616E-38</ixy>
+          <ixz>0</ixz>
+          <iyy>6.05944109717972E-05</iyy>
+          <iyz>0</iyz>
+          <izz>6.05944109717972E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="FL_Wheel_collision">
+        <pose>-0.13335 0 -0.127 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Demo_Robot/meshes/FL_Wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode />
+          </contact>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="FL_Wheel_visual">
+        <pose>-0.13335 0 -0.127 0 0 0</pose>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+        </material>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Demo_Robot/meshes/FL_Wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="Chassis-FL_Wheel" type="revolute">
+      <parent>Chassis</parent>
+      <child>FL_Wheel</child>
+      <pose>5.55111512312578E-17 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+	<use_parent_model_frame>1</use_parent_model_frame>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+        </dynamics>
+        <limit>
+          <effort>1</effort>
+        </limit>
+      </axis>
+    </joint>
+    <link name="FR_Wheel">
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <pose>0.127 -0.13335 2.8199664825479E-17 1.5707963267949 0 1.5707963267949</pose>
+      <must_be_base_link>0</must_be_base_link>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <inertial>
+        <mass>0.161008328313146</mass>
+        <pose>0 0 0 0 0 0</pose>
+        <inertia>
+          <ixx>0.000116860649731323</ixx>
+          <ixy>7.52764927567616E-38</ixy>
+          <ixz>0</ixz>
+          <iyy>6.05944109717972E-05</iyy>
+          <iyz>0</iyz>
+          <izz>6.05944109717972E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="FR_Wheel_collision">
+        <pose>0.13335 0 -0.127 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Demo_Robot/meshes/FR_Wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode />
+          </contact>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="FR_Wheel_visual">
+        <pose>0.13335 0 -0.127 0 0 0</pose>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+        </material>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Demo_Robot/meshes/FR_Wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="Chassis-FR_Wheel" type="revolute">
+      <parent>Chassis</parent>
+      <child>FR_Wheel</child>
+      <pose>-5.55111512312578E-17 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+	<use_parent_model_frame>1</use_parent_model_frame>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+        </dynamics>
+        <limit>
+          <effort>1</effort>
+        </limit>
+      </axis>
+    </joint>
+    <link name="BL_Wheel">
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <pose>-0.127 0.13335 -2.8199664825479E-17 1.5707963267949 0 1.5707963267949</pose>
+      <must_be_base_link>0</must_be_base_link>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <inertial>
+        <mass>0.161008328313146</mass>
+        <pose>0 0 0 0 0 0</pose>
+        <inertia>
+          <ixx>0.000116860649731323</ixx>
+          <ixy>7.52764927567616E-38</ixy>
+          <ixz>0</ixz>
+          <iyy>6.05944109717972E-05</iyy>
+          <iyz>0</iyz>
+          <izz>6.05944109717972E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="BL_Wheel_collision">
+        <pose>-0.13335 0 0.127 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Demo_Robot/meshes/BL_Wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode />
+          </contact>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="BL_Wheel_visual">
+        <pose>-0.13335 0 0.127 0 0 0</pose>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+        </material>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Demo_Robot/meshes/BL_Wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="Chassis-BL_Wheel" type="revolute">
+      <parent>Chassis</parent>
+      <child>BL_Wheel</child>
+      <pose>5.55111512312578E-17 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+	<use_parent_model_frame>1</use_parent_model_frame>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+        </dynamics>
+        <limit>
+          <effort>1</effort>
+        </limit>
+      </axis>
+    </joint>
+    <link name="BR_Wheel">
+      <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <pose>-0.127 -0.13335 -2.8199664825479E-17 1.5707963267949 0 1.5707963267949</pose>
+      <must_be_base_link>0</must_be_base_link>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <inertial>
+        <mass>0.161008328313146</mass>
+        <pose>0 0 0 0 0 0</pose>
+        <inertia>
+          <ixx>0.000116860649731323</ixx>
+          <ixy>7.52764927567616E-38</ixy>
+          <ixz>0</ixz>
+          <iyy>6.05944109717971E-05</iyy>
+          <iyz>0</iyz>
+          <izz>6.05944109717971E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="BR_Wheel_collision">
+        <pose>0.13335 0 0.127 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Demo_Robot/meshes/BR_Wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode />
+          </contact>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="BR_Wheel_visual">
+        <pose>0.13335 0 0.127 0 0 0</pose>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+        </material>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Demo_Robot/meshes/BR_Wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="Chassis-BR_Wheel" type="revolute">
+      <parent>Chassis</parent>
+      <child>BR_Wheel</child>
+      <pose>-5.55111512312578E-17 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+	<use_parent_model_frame>1</use_parent_model_frame>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+        </dynamics>
+        <limit>
+          <effort>1</effort>
+        </limit>
+      </axis>
+    </joint>
+    <plugin name="Chassis-FL Wheel_motor" filename="libdc_motor.so">
+      <joint>Chassis-FL_Wheel</joint>
+      <topic>/gazebo/frc/simulator/pwm/1</topic>
+      <multiplier>1.0</multiplier>
+    </plugin>
+    <plugin name="Chassis-FR Wheel_motor" filename="libdc_motor.so">
+      <joint>Chassis-FR_Wheel</joint>
+      <topic>/gazebo/frc/simulator/pwm/2</topic>
+      <multiplier>1.0</multiplier>
+    </plugin>
+    <plugin name="Chassis-BL Wheel_motor" filename="libdc_motor.so">
+      <joint>Chassis-BL_Wheel</joint>
+      <topic>/gazebo/frc/simulator/pwm/1</topic>
+      <multiplier>1.0</multiplier>
+    </plugin>
+    <plugin name="Chassis-BR Wheel_motor" filename="libdc_motor.so">
+      <joint>Chassis-BR_Wheel</joint>
+      <topic>/gazebo/frc/simulator/pwm/2</topic>
+      <multiplier>1.0</multiplier>
+    </plugin>
+  </model>
+</sdf>
