@@ -2,13 +2,10 @@
 <sdf version="1.5">
   <model name="Demo Robot">
     <pose>0 0 -0.0381 0 0 0</pose>
-    <plugin name="clock" filename="libclock.so">
-      <topic>/gazebo/frc/time</topic>
-    </plugin>
     <link name="Chassis">
       <gravity>1</gravity>
       <self_collide>0</self_collide>
-      <pose>0.000996109222775244 -5.81283919974791E-20 0.0259777023717224 1.5707963267949 0 1.5707963267949</pose>
+      <pose>0.00099610922277 -5.81283919E-20 0.02597770 1.57079632 0 1.5707963267949</pose>
       <must_be_base_link>1</must_be_base_link>
       <velocity_decay>
         <linear>0</linear>
@@ -26,39 +23,6 @@
           <izz>0.00294476205775563</izz>
         </inertia>
       </inertial>
-      <collision name="Chassis_collision">
-        <pose>3.88659493826476E-17 -0.0259777023717224 -0.000996109222775252 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://Demo_Robot/meshes/Chassis.STL</uri>
-          </mesh>
-        </geometry>
-        <surface>
-          <contact>
-            <ode />
-          </contact>
-          <friction>
-            <ode>
-              <mu>0</mu>
-              <mu2>0</mu2>
-            </ode>
-          </friction>
-        </surface>
-      </collision>
-      <visual name="Chassis_visual">
-        <pose>3.88659493826476E-17 -0.0259777023717224 -0.000996109222775252 0 0 0</pose>
-        <material>
-          <ambient>1 0 0 1</ambient>
-          <diffuse>1 0 0 1</diffuse>
-        </material>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://Demo_Robot/meshes/Chassis.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
     </link>
     <link name="FL_Wheel">
       <gravity>1</gravity>
@@ -85,20 +49,44 @@
         <pose>-0.13335 0 -0.127 0 0 0</pose>
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://Demo_Robot/meshes/FL_Wheel.STL</uri>
+              <uri>model://Demo_Robot/meshes/wheel.STL</uri>
           </mesh>
         </geometry>
         <surface>
-          <contact>
-            <ode />
-          </contact>
           <friction>
             <ode>
-              <mu>0</mu>
-              <mu2>0</mu2>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
             </ode>
           </friction>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1e+06</threshold>
+          </bounce>
+          <contact>
+            <collide_without_contact>0</collide_without_contact>
+            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+            <collide_bitmask>1</collide_bitmask>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+            <bullet>
+              <split_impulse>1</split_impulse>
+              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+            </bullet>
+          </contact>
         </surface>
       </collision>
       <visual name="FL_Wheel_visual">
@@ -110,27 +98,11 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://Demo_Robot/meshes/FL_Wheel.STL</uri>
+            <uri>model://Demo_Robot/meshes/wheel.STL</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
-    <joint name="Chassis-FL_Wheel" type="revolute">
-      <parent>Chassis</parent>
-      <child>FL_Wheel</child>
-      <pose>5.55111512312578E-17 0 0 0 0 0</pose>
-      <axis>
-        <xyz>0 1 0</xyz>
-	<use_parent_model_frame>1</use_parent_model_frame>
-        <dynamics>
-          <damping>0</damping>
-          <friction>0</friction>
-        </dynamics>
-        <limit>
-          <effort>1</effort>
-        </limit>
-      </axis>
-    </joint>
     <link name="FR_Wheel">
       <gravity>1</gravity>
       <self_collide>0</self_collide>
@@ -156,20 +128,44 @@
         <pose>0.13335 0 -0.127 0 0 0</pose>
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://Demo_Robot/meshes/FR_Wheel.STL</uri>
+            <uri>model://Demo_Robot/meshes/wheel.STL</uri>
           </mesh>
         </geometry>
         <surface>
-          <contact>
-            <ode />
-          </contact>
           <friction>
             <ode>
-              <mu>0</mu>
-              <mu2>0</mu2>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
             </ode>
           </friction>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1e+06</threshold>
+          </bounce>
+          <contact>
+            <collide_without_contact>0</collide_without_contact>
+            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+            <collide_bitmask>1</collide_bitmask>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+            <bullet>
+              <split_impulse>1</split_impulse>
+              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+            </bullet>
+          </contact>
         </surface>
       </collision>
       <visual name="FR_Wheel_visual">
@@ -181,27 +177,11 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://Demo_Robot/meshes/FR_Wheel.STL</uri>
+            <uri>model://Demo_Robot/meshes/wheel.STL</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
-    <joint name="Chassis-FR_Wheel" type="revolute">
-      <parent>Chassis</parent>
-      <child>FR_Wheel</child>
-      <pose>-5.55111512312578E-17 0 0 0 0 0</pose>
-      <axis>
-        <xyz>0 1 0</xyz>
-	<use_parent_model_frame>1</use_parent_model_frame>
-        <dynamics>
-          <damping>0</damping>
-          <friction>0</friction>
-        </dynamics>
-        <limit>
-          <effort>1</effort>
-        </limit>
-      </axis>
-    </joint>
     <link name="BL_Wheel">
       <gravity>1</gravity>
       <self_collide>0</self_collide>
@@ -227,20 +207,44 @@
         <pose>-0.13335 0 0.127 0 0 0</pose>
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://Demo_Robot/meshes/BL_Wheel.STL</uri>
+            <uri>model://Demo_Robot/meshes/wheel.STL</uri>
           </mesh>
         </geometry>
         <surface>
-          <contact>
-            <ode />
-          </contact>
           <friction>
             <ode>
-              <mu>0</mu>
-              <mu2>0</mu2>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
             </ode>
           </friction>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1e+06</threshold>
+          </bounce>
+          <contact>
+            <collide_without_contact>0</collide_without_contact>
+            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+            <collide_bitmask>1</collide_bitmask>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+            <bullet>
+              <split_impulse>1</split_impulse>
+              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+            </bullet>
+          </contact>
         </surface>
       </collision>
       <visual name="BL_Wheel_visual">
@@ -252,36 +256,13 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://Demo_Robot/meshes/BL_Wheel.STL</uri>
+            <uri>model://Demo_Robot/meshes/wheel.STL</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
-    <joint name="Chassis-BL_Wheel" type="revolute">
-      <parent>Chassis</parent>
-      <child>BL_Wheel</child>
-      <pose>5.55111512312578E-17 0 0 0 0 0</pose>
-      <axis>
-        <xyz>0 1 0</xyz>
-	<use_parent_model_frame>1</use_parent_model_frame>
-        <dynamics>
-          <damping>0</damping>
-          <friction>0</friction>
-        </dynamics>
-        <limit>
-          <effort>1</effort>
-        </limit>
-      </axis>
-    </joint>
     <link name="BR_Wheel">
-      <gravity>1</gravity>
-      <self_collide>0</self_collide>
       <pose>-0.127 -0.13335 -2.8199664825479E-17 1.5707963267949 0 1.5707963267949</pose>
-      <must_be_base_link>0</must_be_base_link>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
       <inertial>
         <mass>0.161008328313146</mass>
         <pose>0 0 0 0 0 0</pose>
@@ -298,20 +279,44 @@
         <pose>0.13335 0 0.127 0 0 0</pose>
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://Demo_Robot/meshes/BR_Wheel.STL</uri>
+            <uri>model://Demo_Robot/meshes/wheel.STL</uri>
           </mesh>
         </geometry>
         <surface>
-          <contact>
-            <ode />
-          </contact>
           <friction>
             <ode>
-              <mu>0</mu>
-              <mu2>0</mu2>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
             </ode>
           </friction>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1e+06</threshold>
+          </bounce>
+          <contact>
+            <collide_without_contact>0</collide_without_contact>
+            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+            <collide_bitmask>1</collide_bitmask>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+            <bullet>
+              <split_impulse>1</split_impulse>
+              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+            </bullet>
+          </contact>
         </surface>
       </collision>
       <visual name="BR_Wheel_visual">
@@ -323,46 +328,85 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://Demo_Robot/meshes/BR_Wheel.STL</uri>
+            <uri>model://Demo_Robot/meshes/wheel.STL</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
-    <joint name="Chassis-BR_Wheel" type="revolute">
+    <joint name="Chassis-FL_Wheel" type="revolute">
       <parent>Chassis</parent>
-      <child>BR_Wheel</child>
-      <pose>-5.55111512312578E-17 0 0 0 0 0</pose>
+      <child>FL_Wheel</child>
       <axis>
-        <xyz>0 1 0</xyz>
-	<use_parent_model_frame>1</use_parent_model_frame>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
         <dynamics>
           <damping>0</damping>
           <friction>0</friction>
         </dynamics>
-        <limit>
-          <effort>1</effort>
-        </limit>
       </axis>
     </joint>
+    <joint name="Chassis-FR_Wheel" type="revolute">
+      <parent>Chassis</parent>
+      <child>FR_Wheel</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+        </dynamics>
+      </axis>
+    </joint>
+    <joint name="Chassis-BL_Wheel" type="revolute">
+      <parent>Chassis</parent>
+      <child>BL_Wheel</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+        </dynamics>
+      </axis>
+    </joint>
+    <joint name="Chassis-BR_Wheel" type="revolute">
+      <parent>Chassis</parent>
+      <child>BR_Wheel</child>>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0</friction>
+        </dynamics>
+      </axis>
+    </joint>
+    <plugin name="clock" filename="libclock.so">
+      <topic>/gazebo/frc/time</topic>
+    </plugin>
     <plugin name="Chassis-FL Wheel_motor" filename="libdc_motor.so">
       <joint>Chassis-FL_Wheel</joint>
       <topic>/gazebo/frc/simulator/pwm/1</topic>
-      <multiplier>1.0</multiplier>
+      <multiplier>15.0</multiplier>
     </plugin>
     <plugin name="Chassis-FR Wheel_motor" filename="libdc_motor.so">
       <joint>Chassis-FR_Wheel</joint>
       <topic>/gazebo/frc/simulator/pwm/2</topic>
-      <multiplier>1.0</multiplier>
+      <multiplier>15.0</multiplier>
     </plugin>
     <plugin name="Chassis-BL Wheel_motor" filename="libdc_motor.so">
       <joint>Chassis-BL_Wheel</joint>
-      <topic>/gazebo/frc/simulator/pwm/1</topic>
-      <multiplier>1.0</multiplier>
+      <topic>/gazebo/frc/simulator/pwm/3</topic>
+      <multiplier>-15.0</multiplier>
     </plugin>
     <plugin name="Chassis-BR Wheel_motor" filename="libdc_motor.so">
       <joint>Chassis-BR_Wheel</joint>
-      <topic>/gazebo/frc/simulator/pwm/2</topic>
-      <multiplier>1.0</multiplier>
+      <topic>/gazebo/frc/simulator/pwm/4</topic>
+      <multiplier>-15.0</multiplier>
     </plugin>
   </model>
 </sdf>
