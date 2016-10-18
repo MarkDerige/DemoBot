@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sdf version="1.5">
   <model name="Demo Robot">
-    <pose>0 0 -0.0381 0 0 0</pose>
+    <pose>0 0 0 0 0 0</pose>
     <link name="Chassis">
       <gravity>1</gravity>
       <self_collide>0</self_collide>
-      <pose>0.00099610922277 -5.81283919E-20 0.02597770 1.57079632 0 1.5707963267949</pose>
+      <pose>0 0 0 0 0 0</pose>
       <must_be_base_link>1</must_be_base_link>
       <velocity_decay>
         <linear>0</linear>
@@ -13,21 +13,21 @@
       </velocity_decay>
       <inertial>
         <mass>0.534070543471594</mass>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>-0.18899 0.121417 -0.076574 0 -0 0</pose>
         <inertia>
-          <ixx>0.00297654416727114</ixx>
-          <ixy>6.16786197506977E-20</ixy>
-          <ixz>5.90998711658102E-19</ixz>
-          <iyy>0.00567628188721083</iyy>
-          <iyz>1.65834314751053E-05</iyz>
-          <izz>0.00294476205775563</izz>
+          <ixx>0.146667</ixx>
+          <ixy>-0.00194486</ixy>
+          <ixz>0.00389928</ixz>
+          <iyy>0.0922389</iyy>
+          <iyz>0.00996714</iyz>
+          <izz>0.138363</izz>
         </inertia>
       </inertial>
     </link>
     <link name="FL_Wheel">
       <gravity>1</gravity>
       <self_collide>0</self_collide>
-      <pose>0.127 0.13335 2.8199664825479E-17 1.5707963267949 0 1.5707963267949</pose>
+     <pose>-0.3154 -0.08895 -0.12636 0 -0 1.5708</pose>
       <must_be_base_link>0</must_be_base_link>
       <velocity_decay>
         <linear>0</linear>
@@ -35,18 +35,18 @@
       </velocity_decay>
       <inertial>
         <mass>0.161008328313146</mass>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>-0.022263 -0.001581 0.02216 0 -0 0</pose>   
         <inertia>
-          <ixx>0.000116860649731323</ixx>
-          <ixy>7.52764927567616E-38</ixy>
-          <ixz>0</ixz>
-          <iyy>6.05944109717972E-05</iyy>
-          <iyz>0</iyz>
-          <izz>6.05944109717972E-05</izz>
+          <ixx>0.00014966</ixx>
+          <ixy>-2.6368e-09</ixy>
+          <ixz>2.0517e-09</ixz>
+          <iyy>0.00023567</iyy>
+          <iyz>1.7444e-09</iyz>
+          <izz>0.00014965</izz>
         </inertia>
       </inertial>
       <collision name="FL_Wheel_collision">
-        <pose>-0.13335 0 -0.127 0 0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
               <uri>model://Demo_Robot/meshes/wheel.STL</uri>
@@ -90,7 +90,7 @@
         </surface>
       </collision>
       <visual name="FL_Wheel_visual">
-        <pose>-0.13335 0 -0.127 0 0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <material>
           <ambient>1 0 0 1</ambient>
           <diffuse>1 0 0 1</diffuse>
@@ -106,7 +106,7 @@
     <link name="FR_Wheel">
       <gravity>1</gravity>
       <self_collide>0</self_collide>
-      <pose>0.127 -0.13335 2.8199664825479E-17 1.5707963267949 0 1.5707963267949</pose>
+      <pose>-0.0868 -0.08895 -0.12636 0 -0 1.5708</pose>
       <must_be_base_link>0</must_be_base_link>
       <velocity_decay>
         <linear>0</linear>
@@ -114,18 +114,18 @@
       </velocity_decay>
       <inertial>
         <mass>0.161008328313146</mass>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>-0.014099 -0.004525 0.009528 0 -0 0</pose>
         <inertia>
-          <ixx>0.000116860649731323</ixx>
-          <ixy>7.52764927567616E-38</ixy>
-          <ixz>0</ixz>
-          <iyy>6.05944109717972E-05</iyy>
-          <iyz>0</iyz>
-          <izz>6.05944109717972E-05</izz>
+          <ixx>0.00015108</ixx>
+          <ixy>2.4641e-09</ixy>
+          <ixz>3.2659e-09</ixz>
+          <iyy>0.00023589</iyy>
+          <iyz>1.3873e-08</iyz>
+          <izz>0.00015106</izz>
         </inertia>
       </inertial>
       <collision name="FR_Wheel_collision">
-        <pose>0.13335 0 -0.127 0 0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <uri>model://Demo_Robot/meshes/wheel.STL</uri>
@@ -169,7 +169,7 @@
         </surface>
       </collision>
       <visual name="FR_Wheel_visual">
-        <pose>0.13335 0 -0.127 0 0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <material>
           <ambient>1 0 0 1</ambient>
           <diffuse>1 0 0 1</diffuse>
@@ -185,7 +185,7 @@
     <link name="BL_Wheel">
       <gravity>1</gravity>
       <self_collide>0</self_collide>
-      <pose>-0.127 0.13335 -2.8199664825479E-17 1.5707963267949 0 1.5707963267949</pose>
+      <pose>-0.3154 0.27935 -0.12636 0 -0 1.5708</pose>
       <must_be_base_link>0</must_be_base_link>
       <velocity_decay>
         <linear>0</linear>
@@ -193,18 +193,18 @@
       </velocity_decay>
       <inertial>
         <mass>0.161008328313146</mass>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>-0.0141 -0.004525 0.009528 0 -0 0</pose>
         <inertia>
-          <ixx>0.000116860649731323</ixx>
-          <ixy>7.52764927567616E-38</ixy>
-          <ixz>0</ixz>
-          <iyy>6.05944109717972E-05</iyy>
-          <iyz>0</iyz>
-          <izz>6.05944109717972E-05</izz>
+          <ixx>0.000151077</ixx>
+          <ixy>2.46441e-09</ixy>
+          <ixz>3.26639e-09</ixz>
+          <iyy>0.00023589</iyy>
+          <iyz>1.38724e-08</iyz>
+          <izz>0.000151063</izz>
         </inertia>
       </inertial>
       <collision name="BL_Wheel_collision">
-        <pose>-0.13335 0 0.127 0 0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <uri>model://Demo_Robot/meshes/wheel.STL</uri>
@@ -248,7 +248,7 @@
         </surface>
       </collision>
       <visual name="BL_Wheel_visual">
-        <pose>-0.13335 0 0.127 0 0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <material>
           <ambient>1 0 0 1</ambient>
           <diffuse>1 0 0 1</diffuse>
@@ -262,21 +262,21 @@
       </visual>
     </link>
     <link name="BR_Wheel">
-      <pose>-0.127 -0.13335 -2.8199664825479E-17 1.5707963267949 0 1.5707963267949</pose>
+      <pose>-0.0868 0.27935 -0.12636 0 -0 1.5708</pose>
       <inertial>
         <mass>0.161008328313146</mass>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>-0.022263 -0.001581 0.02216 0 -0 0</pose>
         <inertia>
-          <ixx>0.000116860649731323</ixx>
-          <ixy>7.52764927567616E-38</ixy>
-          <ixz>0</ixz>
-          <iyy>6.05944109717971E-05</iyy>
-          <iyz>0</iyz>
-          <izz>6.05944109717971E-05</izz>
+          <ixx>0.000149655</ixx>
+          <ixy>-2.6172e-09</ixy>
+          <ixz>2.06617e-09</ixz>
+          <iyy>0.000235671</iyy>
+          <iyz>1.7582e-09</iyz>
+          <izz>0.000149649</izz>
         </inertia>
       </inertial>
       <collision name="BR_Wheel_collision">
-        <pose>0.13335 0 0.127 0 0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <uri>model://Demo_Robot/meshes/wheel.STL</uri>
@@ -320,7 +320,7 @@
         </surface>
       </collision>
       <visual name="BR_Wheel_visual">
-        <pose>0.13335 0 0.127 0 0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <material>
           <ambient>1 0 0 1</ambient>
           <diffuse>1 0 0 1</diffuse>
@@ -337,7 +337,7 @@
       <parent>Chassis</parent>
       <child>FL_Wheel</child>
       <axis>
-        <xyz>1 0 0</xyz>
+        <xyz>0 1 0</xyz>
         <limit>
           <effort>-1</effort>
           <velocity>-1</velocity>
@@ -352,7 +352,7 @@
       <parent>Chassis</parent>
       <child>FR_Wheel</child>
       <axis>
-        <xyz>1 0 0</xyz>
+        <xyz>0 1 0</xyz>
         <limit>
           <effort>-1</effort>
           <velocity>-1</velocity>
@@ -367,7 +367,7 @@
       <parent>Chassis</parent>
       <child>BL_Wheel</child>
       <axis>
-        <xyz>1 0 0</xyz>
+        <xyz>0 1 0</xyz>
         <dynamics>
           <damping>0</damping>
           <friction>0</friction>
@@ -378,7 +378,7 @@
       <parent>Chassis</parent>
       <child>BR_Wheel</child>>
       <axis>
-        <xyz>1 0 0</xyz>
+        <xyz>0 1 0</xyz>
         <dynamics>
           <damping>0</damping>
           <friction>0</friction>
